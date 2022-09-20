@@ -34,10 +34,11 @@ void inserirElementoNoFim(struct linkedlist *listaligada, int valor) {
     struct no *aux = listaligada->cabeca; // guarda o valor da cabeca;
     for (int i = 0; i < listaligada->qtdade - 1; i++) {
       aux = aux->prox;
-      // caminha até a penultima posicao;
+      // caminha até a ultima posicao;
     }
     aux->prox = alocarNovoNo(valor);
   }
+  printf("valor %d inserido no fim", valor);
   listaligada->qtdade++;
 }
 
@@ -46,7 +47,7 @@ void inserirElementoNoInicio(struct linkedlist *listaligada, int valor) {
   struct no *novoNo = alocarNovoNo(valor);
   novoNo->prox = listaligada->cabeca;
   listaligada->cabeca = novoNo;
-
+  printf("valor %d inserido no inicio", valor);
   listaligada->qtdade++;
 }
 
@@ -60,12 +61,13 @@ void inserirElementoEmPosicao(struct linkedlist *listaligada, int valor,
     inserirElementoNoInicio(listaligada, valor);
   } else {
     struct no *aux = listaligada->cabeca;
-    for (int i = 0; i < posicao-1; i++) {
+    for (int i = 0; i < posicao - 1; i++) {
       aux = aux->prox;
     }
     struct no *NovoNo = alocarNovoNo(valor);
     NovoNo->prox = aux->prox;
     aux->prox = NovoNo;
+    printf("valor %d inserido na posicao %d", valor, posicao);
     listaligada->qtdade++;
   }
 }
@@ -82,13 +84,13 @@ int obterElementoEmPosicao(struct linkedlist *listaligada, int posicao) {
     for (int i = 0; i < posicao; i++) {
       aux = aux->prox;
     }
-    printf("O valor na posição %d corresponde a %d: ", posicao, aux->val);
+    printf("O valor na posicao %d corresponde a %d: ", posicao, aux->val);
   }
 }
 
 void removerElementoEmPosicao(struct linkedlist *listaligada, int posicao) {
   if (posicao > listaligada->qtdade || posicao < 0) {
-    printf("Posição Inválida");
+    printf("Posicao Inválida");
     exit(0);
   } else {
     struct no *aux = listaligada->cabeca;
@@ -102,9 +104,7 @@ void removerElementoEmPosicao(struct linkedlist *listaligada, int posicao) {
     }
     struct no *aux2 = aux->prox;
     aux->prox = aux->prox->prox; // recebe 0;
-
-    printf("Elementos com valor %d removido \n" , aux2->val);
-
+    printf("valor na posicao %d removido", posicao);
     free(aux2);
     listaligada->qtdade--;
   }
