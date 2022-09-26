@@ -110,6 +110,22 @@ void removerElementoEmPosicao(struct linkedlist *listaligada, int posicao) {
   }
 }
 
+void inverterLista(struct linkedlist * listaligada){
+
+struct no * resultado = 0;
+struct no *aux = listaligada->cabeca;
+
+while (aux != 0){
+    struct no* novoNo = aux;  // o nó de origem frontal
+    aux = aux->prox;    // avança o ponteiro de origem
+    novoNo->prox = resultado;           // liga o destino antigo ao novo nó
+    resultado = novoNo;            
+}
+
+listaligada->cabeca = resultado;
+
+}
+
 void imprimirlistaligada(struct linkedlist *listaligada) {
   // usamos o aux para percorrer a lista
   if (listaligada->cabeca != NULL) {

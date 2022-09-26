@@ -59,6 +59,11 @@ int main() {
   inserirElementoNoInicio(listaligada,7);
   imprimirlistaligada(listaligada);
   printf("\n");
+  printf("\n");
+  inverterLista(listaligada);
+  printf("Lista invertida: ");
+  imprimirlistaligada(listaligada);
+  printf("\n");
   printf("quantidade de elementos em cima: %d", listaligada->qtdade);
   
   free(listaligada);
