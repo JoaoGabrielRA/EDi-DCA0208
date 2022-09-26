@@ -3,9 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int tamanho = 10;
+
 int main(void) {
   /* ---- ARRAY LIST ----*/
+  int tamanho = 10;
   struct arraylist *lista = inicializar(tamanho);
   for (int i = 0; i < 10; i++) {
     inserirElementoNoFim(lista, i);
@@ -28,6 +29,13 @@ int main(void) {
   exibirLista(lista);
   printf("\n");
   removerElementoNoFim(lista);
+  exibirLista(lista);
+  printf("\n");
+  printf("\n");
+  exibirLista(lista);
+  printf("\n");
+  printf("\n");
+  inverterLista(lista);
   exibirLista(lista);
   printf("\n");
   exibirTamanho(lista);

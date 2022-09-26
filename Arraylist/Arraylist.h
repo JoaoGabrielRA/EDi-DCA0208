@@ -79,9 +79,22 @@ void removerElementoEmPosicao(struct arraylist *lista, int posicao) {
 int exibirTamanho(struct arraylist *lista) {
   int tamanho = lista->qtdade;
 
-  printf("%d", tamanho);
+  printf("Tamanho da lista: %d", tamanho);
 }
 
+void inverterLista(struct arraylist *lista){
+
+   int novaLista[lista->qtdade];
+    int j = lista->qtdade;
+  for (int i = 0 ; i < lista->qtdade; i++) {
+    novaLista[i] = lista->vetor[j-1];
+    j--;
+    //printf("%d",novaLista[i]);
+  }
+  for(int i = 0; i< lista->qtdade ; i++){
+    lista->vetor[i] = novaLista[i];
+  }
+}
 void exibirLista(struct arraylist *lista) {
   printf("[");
   for (int i = 0; i < lista->qtdade; i++) {
