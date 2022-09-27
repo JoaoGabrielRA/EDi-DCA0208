@@ -29,5 +29,9 @@ int main(void) {
   printf("\n\n");
   imprimirLista(lista);
 
+  inverterLista(lista);
+  printf("\n Lista inversa: ");
+  imprimirLista(lista);
+
   free(lista);
 }

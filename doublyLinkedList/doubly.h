@@ -100,6 +100,22 @@ void removerElementoEmPosicao(struct doublylista *lista, int posicao) {
   free(aux);
 }
 
+void inverterLista(struct doublylista *lista){
+    struct no* atual = lista->cabeca;
+    struct no* aux = atual->prox;
+    atual->prox = NULL;
+    atual->ant = aux;
+
+    while(aux != NULL){
+        aux->ant = aux->prox;
+        aux->prox = atual;
+        atual = aux;
+        aux = aux->ant;
+    }
+
+    lista->cabeca = atual;
+}
+
 void imprimirLista(struct no **cabeca) {
   // usamos o aux para percorrer a lista
   if ((*cabeca) != NULL) {
