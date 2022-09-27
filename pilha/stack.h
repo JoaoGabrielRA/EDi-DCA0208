@@ -71,7 +71,12 @@ int desempilharRetornando(struct arraystack* pilha){
 
 //retorne a constante INT_MIN se a pilha for nula ou vazia
 int topo(struct arraystack* pilha){
-   //
+    if(vazia(pilha)){
+        printf("A pilha esta vazia!");
+        return -1;
+    }else{
+        return pilha->vetor[pilha->qtdade-1];
+    }
 }
 
 void imprimir(struct arraystack* pilha){
